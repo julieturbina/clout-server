@@ -18,17 +18,6 @@ router.get('/events', (req, res, next) => {
     );
 });
 
-                    //===COMMENTED TO TEST CODE ABOVE FOR GET
-//     .then((eventsList, err) => {
-//       if (err) {
-//         res.json(err);
-//         return;
-//       }
-//       res.json(eventsList);
-//     })
-//     .catch(error => next(error));
-//   });
-
                     //create a new event
         
 router.post('/events', function(req, res) {
