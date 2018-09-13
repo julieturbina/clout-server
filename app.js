@@ -10,13 +10,14 @@ const logger       = require('morgan');
 const path         = require('path');
 
 
+
 mongoose.Promise = Promise;
 mongoose
   .connect('mongodb://localhost/clout-server', {useMongoClient: true})
   .then(() => {
-    console.log('Connected to Mongo!')
+    console.log('Connected to Mongo!');
   }).catch(err => {
-    console.error('Error connecting to mongo', err)
+    console.error('Error connecting to mongo', err);
   });
 
 const app_name = require('./package.json').name;
@@ -52,7 +53,9 @@ app.locals.title = 'Express - Generated with IronGenerator';
 
 
 const index = require('./routes/index');
-app.use('/', index);
+const eventsApi = require('./routes/events-api');
 
+app.use('/', index);
+app.use('/api', eventsApi);
 
 module.exports = app;
